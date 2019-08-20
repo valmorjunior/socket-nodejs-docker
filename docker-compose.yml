@@ -8,7 +8,7 @@ services:
     image: nginx
     container_name: nodejs
     environment:
-      - VIRTUAL_HOST=valmor.mirar.solutions
+      - VIRTUAL_HOST=socket.mirar.solutions
       - VIRTUAL_PORT=80
       - LETSENCRYPT_HOST=valmor.mirar.solutions
       - LETSENCRYPT_EMAIL=brunovilarins@2cl.com.br
