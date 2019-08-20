@@ -1,0 +1,16 @@
+{
+  "name": "socket-image-demo",
+  "version": "1.0.0",
+  "description": "socket image demo",
+  "author": "Valmor Junior <valmors2@gmail.com>",
+  "license": "MIT",
+  "main": "app.js",
+  "keywords": [
+    "nodejs",
+    "bootstrap",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
