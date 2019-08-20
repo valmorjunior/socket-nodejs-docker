@@ -1,18 +1,30 @@
 version: '3'
 
-services:
+services:    
   nodejs:
     build:
       context: .
       dockerfile: Dockerfile
-    image: nodejs
+    image: nginx
     container_name: nodejs
-    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=valmor.mirar.solutions
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=valmor.mirar.solutions
+      - LETSENCRYPT_EMAIL=brunovilarins@2cl.com.br
+    restart: always
     ports:
       - "80:8080"
     volumes:
-      - .:devops/projetos/socket
-      - node_modules:devops/projetos/socket/node_modules
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./html:/usr/share/nginx/html
+      - .:devops/projetos/socket/html
+      - node_modules:devops/projetos/socket/html/node_modules
     networks:
       - app-network
-    command: -- devops/projetos/socket/node_modules/.bin/nodemon app.js
+    command: -- devops/projetos/socket/html/node_modules/.bin/nodemon app.js
+
+  networks:
+  default:
+    external:
+      name: webproxy
