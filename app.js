@@ -3,7 +3,7 @@ var app = express();
 var router = express.Router();
 
 var path = __dirname + '/views/';
-const PORT = 8080;
+const PORT = 8000;
 const HOST = '0.0.0.0';
 
 router.use(function (req,res,next) {
@@ -22,6 +22,6 @@ router.get("/sharks",function(req,res){
 app.use(express.static(path));
 app.use("/", router);
 
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!')
+app.listen(8000, function () {
+  console.log('Example app listening on port 8000!')
 })
